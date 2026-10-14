@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>XANDÃO | Filmes e Séries</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#" aria-label="XANDÃO início">
+      <span class="logo-x">X</span><span class="marvel-a">A</span><span>NDÃO</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#marvel-filmes">Filmes Marvel</a>
+      <a href="#marvel-series">Séries Marvel</a>
+      <a href="#top-series">Top 10 Séries</a>
+      <a href="#top-filmes">Top 10 Filmes</a>
+      <a href="#minha-lista">Minha lista</a>
+    </nav>
+
+    <div class="nav-actions">
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search"
+               placeholder="Buscar títulos..." aria-label="Buscar títulos">
+      </label>
+
+      <select id="profileSelect" aria-label="Selecionar perfil">
+        <option value="heroi">🦸 Herói</option>
+        <option value="aranha">🕷️ Aranha</option>
+        <option value="pantera">🐈‍⬛ Pantera</option>
+        <option value="groot">🌱 Groot</option>
+      </select>
+      <button id="newProfile" class="profile-add" title="Criar perfil">+</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">UNIVERSO MARVEL</span>
+        <h1>HISTÓRIAS<br>EXTRAORDINÁRIAS.</h1>
+        <p>
+          Heróis, vilões e universos inteiros esperando por você.
+          Escolha sua próxima aventura.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" id="heroExplore">▶ Explorar catálogo</button>
+          <button class="btn btn-secondary" id="heroRandom">✦ Surpreenda-me</button>
+        </div>
+      </div>
+      <div class="hero-shade"></div>
+    </section>
+
+    <div class="catalog">
+      <section class="catalog-section" id="marvel-filmes">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">O UNIVERSO DOS HERÓIS</span>
+            <h2>Filmes da Marvel</h2>
+          </div>
+          <span class="section-count" id="count-marvel-filmes"></span>
+        </div>
+        <div class="movie-row" id="row-marvel-filmes"></div>
+      </section>
+
+      <section class="catalog-section" id="marvel-series">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">SÉRIES E UNIVERSOS</span>
+            <h2>Séries da Marvel</h2>
+          </div>
+          <span class="section-count" id="count-marvel-series"></span>
+        </div>
+        <div class="movie-row" id="row-marvel-series"></div>
+      </section>
+
+      <section class="catalog-section" id="top-series">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">POPULARIDADE</span>
+            <h2>Top 10 Séries Brasil</h2>
+          </div>
+          <span class="section-note">Lista demonstrativa</span>
+        </div>
+        <div class="movie-row top-row" id="row-top-series"></div>
+      </section>
+
+      <section class="catalog-section" id="top-filmes">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">PARA SUA PRÓXIMA SESSÃO</span>
+            <h2>Top 10 Filmes Brasil</h2>
+          </div>
+          <span class="section-note">Lista demonstrativa</span>
+        </div>
+        <div class="movie-row top-row" id="row-top-filmes"></div>
+      </section>
+
+      <section class="catalog-section" id="minha-lista">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">SEUS FAVORITOS</span>
+            <h2>Minha Lista</h2>
+          </div>
+        </div>
+        <p id="emptyList" class="empty-message">
+          Sua lista está vazia. Clique no + de um título para adicioná-lo!
+        </p>
+        <div class="movie-row" id="row-minha-lista"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#inicio">
+      <span class="logo-x">X</span><span class="marvel-a">A</span><span>NDÃO</span>
+    </a>
+    <p>Projeto de estudo. XANDÃO não é afiliado à Marvel ou à Netflix.</p>
+    <p>Capas e links dependem da disponibilidade dos serviços externos.</p>
+  </footer>
+
+  <div class="modal-backdrop" id="movieModal" aria-hidden="true">
+    <section class="movie-modal" role="dialog"
+             aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
+      <div class="modal-art" id="modalArt"></div>
+      <div class="modal-content">
+        <span class="eyebrow" id="modalCategory">XANDÃO</span>
+        <h2 id="modalTitle">Título</h2>
+        <p id="modalDescription"></p>
+        <div class="modal-buttons">
+          <a class="btn btn-primary" id="watchButton"
+             href="#" target="_blank" rel="noopener noreferrer">
+            ▶ Onde assistir
+          </a>
+          <a class="btn btn-secondary" id="trailerButton"
+             href="#" target="_blank" rel="noopener noreferrer">
+            ▷ Ver trailer
+          </a>
+          <button class="btn btn-outline" id="modalAddButton">＋ Minha Lista</button>
+        </div>
+        <p class="modal-disclaimer">
+          “Onde assistir” abre uma busca de disponibilidade em serviços oficiais.
+          A reprodução pode exigir assinatura ou compra.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
